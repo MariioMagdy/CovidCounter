@@ -1,0 +1,48 @@
+
+    <div class="ui dimmer" [class.active]="Loading">
+      <div class="ui text loader">Loading</div>
+    </div>
+
+
+
+<div class="jumbotron bg-white text-center">
+    <h1 class="display-3">Crona Covid-19 Tracker country Wise</h1>
+    <hr>
+    <div class="m-auto">
+    <div class="form-group col-lg-5 m-auto">
+        <label for="c">Select Country</label>
+        <select name="" id="c" class="form-control" #input (change)="updateValues(input.value)">
+            <option value="{{con}}" *ngFor="let con of countries">{{con}}</option>
+        </select>
+    </div>
+    </div>
+    <app-dashboard-card [totalConfirm] ="totalConfirm"
+    [totalActive] ="totalActive"
+    [totalRecovered] ="totalRecovered"
+    [totalDeaths] ="totalDeaths"
+    ></app-dashboard-card>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sno.</th>
+                        <th>Date</th>
+                        <th>Cases</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cs of selectedCountryData; index as i ">
+                        <td>{{i+1}}</td>
+                        <td>{{cs.date | date}}</td>
+                        <td>{{cs.cases}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">  
+            <google-chart [type]="chart.LineChart" [options]="chart.options" style="width: 100%;" [height]="chart.height" [data]="dataTable"></google-chart>
+              </div>
+     
+    </div>
+</div>
