@@ -41,7 +41,7 @@ export class DataServiceService {
     })
 
     this.globalDataUrl =`${this.baseURL}${this.getDate(this.month)}-${this.getDate(this.date)}-${this.year}${this.extention}`;
-    console.log(this.globalDataUrl)
+    // console.log(this.globalDataUrl)
   }
 
   getDateWiseData() {

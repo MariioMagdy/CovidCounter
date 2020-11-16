@@ -1,5 +1,6 @@
 export interface GlobalDataSummary {
-    forEach: any;
+    [x: string]: any;
+  
     country?:string,
     confirmed?:number,
     deaths?:number,
